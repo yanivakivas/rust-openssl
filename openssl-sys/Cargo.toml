@@ -14,8 +14,8 @@ build = "build/main.rs"
 [features]
 vendored = ['openssl-src']
 
-[target.'cfg(target_os = "windows")'.dependencies]
-openssl-src = {}
+[target.'cfg(target_os = "windows")'.build-dependencies]
+openssl-src = { version = "111.0.1" }
 
 [dependencies]
 libc = "0.2"
