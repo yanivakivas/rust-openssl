@@ -1,6 +1,6 @@
 extern crate autocfg;
 extern crate cc;
-#[cfg(feature = "vendored")]
+#[cfg(any(feature = "vendored", target_os = "windows"))]
 extern crate openssl_src;
 extern crate pkg_config;
 #[cfg(target_env = "msvc")]
@@ -13,8 +13,8 @@ use std::path::{Path, PathBuf};
 
 mod cfgs;
 
-#[cfg_attr(feature = "vendored", path = "find_vendored.rs")]
-#[cfg_attr(not(feature = "vendored"), path = "find_normal.rs")]
+#[cfg_attr(any(feature = "vendored", target_os = "windows"), path = "find_vendored.rs")]
+#[cfg_attr(not(any(feature = "vendored", target_os = "windows")), path = "find_normal.rs")]
 mod find;
 
 enum Version {
