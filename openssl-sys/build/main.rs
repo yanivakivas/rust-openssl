@@ -13,8 +13,8 @@ use std::path::{Path, PathBuf};
 
 mod cfgs;
 
-#[cfg_attr(target_os = "windows", path = "find_vendored.rs")]
-#[cfg_attr(not(target_os = "windows"), path = "find_normal.rs")]
+#[cfg_attr(any(feature = "vendored", target_os = "windows"), path = "find_vendored.rs")]
+#[cfg_attr(not(any(feature = "vendored", target_os = "windows")), path = "find_normal.rs")]
 mod find;
 
 enum Version {
