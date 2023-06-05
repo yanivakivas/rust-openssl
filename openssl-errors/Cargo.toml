@@ -12,7 +12,7 @@ categories = ["api-bindings"]
 [dependencies]
 libc = "0.2"
 
-openssl-sys = { version = "0.9.42", path = "../openssl-sys" }
+openssl-sys = { version = "0.9.55", path = "../openssl-sys" }
 
 [dev-dependencies]
 openssl = { version = "0.10.19", path = "../openssl" }
